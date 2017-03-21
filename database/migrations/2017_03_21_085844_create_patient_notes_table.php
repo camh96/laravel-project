@@ -16,6 +16,7 @@ class CreatePatientNotesTable extends Migration
         Schema::create('patient_notes', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('doctor_id')->unsigned();
+            $table->integer('patient_id')->unsigned();
             $table->date('date_issued');
             $table->text('notes');
             $table->timestamps();
@@ -24,6 +25,7 @@ class CreatePatientNotesTable extends Migration
         Schema::table('patient_notes', function ($table) {
             
             $table->foreign('doctor_id')->references('id')->on('users');
+            $table->foreign('patient_id')->references('id')->on('patients');
             
         });
     }

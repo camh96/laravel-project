@@ -15,9 +15,16 @@ class CreateAccountsTable extends Migration
     {
         Schema::create('accounts', function (Blueprint $table) {
             $table->increments('id');   
+            $table->integer('patient_id')->unsigned();
             $table->date('date_issued');
             $table->date('date_paid');
             $table->timestamps();
+        });
+
+        Schema::table('accounts', function ($table) {
+            
+            $table->foreign('patient_id')->references('id')->on('patients');
+            
         });
     }
 
