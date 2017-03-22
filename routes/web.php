@@ -12,5 +12,8 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+
+  $name = 'Cam';
+
+    return view('home', compact('name'));
 });

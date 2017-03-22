@@ -18,6 +18,7 @@ class CreateAccountsTable extends Migration
             $table->integer('patient_id')->unsigned();
             $table->date('date_issued');
             $table->date('date_paid');
+            $table->integer('amount');
             $table->timestamps();
         });
 
